@@ -17,7 +17,9 @@ const RestaurantPage = () => {
       cuisine: 'Italian',
       location: '123 Main Street, Cityville',
       description: 'Enjoy authentic Italian cuisine in a cozy atmosphere.',
+      greenComment: 'This restaurant uses sustainable packaging, locally sourced ingredients, and supports initiatives to reduce food waste!',
       imageUrl: 'https://www.hotelmousai.com/blog/wp-content/uploads/2021/12/Pasta-800x533.jpg', // Placeholder image URL
+      
     },
     {
       id: 2,
@@ -72,6 +74,7 @@ const RestaurantPage = () => {
                 <p className="card-text"><strong>Cuisine:</strong> {restaurant.cuisine}</p>
                 <p className="card-text"><strong>Location:</strong> {restaurant.location}</p>
                 <p className="card-text">{restaurant.description}</p>
+                <p className="card-text" style={{ color: 'green' }}><strong>This restaurant uses sustainable packaging, locally sourced ingredients, and supports initiatives to reduce food waste!</strong></p>
                 <Link to="/MenuPage" className="btn btn-primary">View Menu</Link>
               </div>
             </div>

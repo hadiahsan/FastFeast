@@ -1,21 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HomePage from './components/HomePage';
+import LogInPage from './components/LogInPage';
 import RestaurantPage from './components/RestaurantPage';
 import MenuPage from './components/MenuPage';
-{/*import RestaurantPage from './components/RestaurantPage';*/}
-{/*import TrackOrderPage from './components/TrackOrderPage';*/}
+import SignUpPage from './components/SignUpPage';
+import UserInfo from './components/UserInfo';
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <div style={{ margin: 0, padding: 0 }}>
-        
+      <div className="App"  >
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<LogInPage />} />
+          <Route path="/SignUpPage" element={<SignUpPage />} />
           <Route path="/RestaurantPage" element={<RestaurantPage />} />
-          <Route path="/MenuPage" element={<MenuPage />} /> 
+          <Route path="/MenuPage" element={<MenuPage />} />
+          <Route path="/UserInfo" element={<UserInfo />} />
         </Routes>
       </div>
     </Router>

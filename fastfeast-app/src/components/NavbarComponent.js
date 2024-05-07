@@ -1,7 +1,8 @@
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faHeadset } from '@fortawesome/free-solid-svg-icons';
+
 
 const NavbarComponent = () => {
   return (
@@ -29,6 +30,7 @@ const NavbarComponent = () => {
             <FontAwesomeIcon icon={faCog} />
           </Button>
         </Nav>
+
       </Container>
     </Navbar>
   );
