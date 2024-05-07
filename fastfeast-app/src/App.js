@@ -6,6 +6,7 @@ import RestaurantPage from './components/RestaurantPage';
 import MenuPage from './components/MenuPage';
 import SignUpPage from './components/SignUpPage';
 import UserInfo from './components/UserInfo';
+import CheckoutPage from './components/CheckoutPage';
 import './App.css';
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
           <Route path="/RestaurantPage" element={<RestaurantPage />} />
           <Route path="/MenuPage" element={<MenuPage />} />
           <Route path="/UserInfo" element={<UserInfo />} />
+          <Route path="/CheckoutPage" element={<CheckoutPage />} />
+
         </Routes>
       </div>
     </Router>

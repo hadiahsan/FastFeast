@@ -61,11 +61,13 @@ const LogInPage = () => {
             />
           </Form.Group>
           
-          <Button variant="danger" type="submit" className="w-100"> Log in </Button>
+          <Link to="/RestaurantPage">
+            <Button variant="danger" type="submit" className="w-100"> Log in </Button>
+          </Link>
 
         </Form>
         <p className="text-center mt-2 text-danger">
-          <Link to="/SignUpPage" className="text-danger">No account yet? Sign up.</Link>
+          <Link to="/SignUpPage" className="text-danger">Don't have an account yet? Sign up.</Link>
         </p>
       </div>
     </div>

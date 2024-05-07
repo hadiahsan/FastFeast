@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MenuPage = () => {
-  const restaurantName = 'Delizioso Italiano';
+  const restaurantName = 'NEED TO WORK ON THIS NEXT, CHANGE EVERYTHING FOR BURGER HAVEN';
   const deliveryTime = '30-45 minutes';
   const deliveryCost = '$5.00';
   const distance = '5 km';
@@ -81,7 +82,9 @@ const MenuPage = () => {
       </div>
 
       <div className="text-center mt-0">
-        <button className="btn btn-primary mb-4">Continue to Payment</button>
+        <Link to="/CheckoutPage">
+          <button className="btn btn-primary mb-4">Continue to Payment</button>
+        </Link>
       </div>
     </div>
   );

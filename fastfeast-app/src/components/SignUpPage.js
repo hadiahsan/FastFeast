@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import Title from './Title';
 import { Link } from 'react-router-dom';
-import BackButton from './BackButton';
 
 
 const SignUpPage = () => {
@@ -27,7 +26,6 @@ const SignUpPage = () => {
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
       <div className="w-100">
-      <BackButton></BackButton>
       <Title></Title>
       <h2 className="text-center mb-4">Create Your Account</h2>
 
