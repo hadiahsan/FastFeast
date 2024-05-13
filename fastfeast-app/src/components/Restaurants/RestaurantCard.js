@@ -17,7 +17,7 @@ const RestaurantCard = ({ restaurant, onSelect }) => {
         <Card.Text className="text-success fw-bold">{green}</Card.Text>
         <div>
           {tags.map((tag) => (
-            <Badge key={tag} bg="black" className="me-2">{tag}</Badge>
+            <Badge key={tag} bg="dark" className="me-2">{tag}</Badge>
           ))}
         </div>
       </Card.Body>

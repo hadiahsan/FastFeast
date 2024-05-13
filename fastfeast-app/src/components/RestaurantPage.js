@@ -101,7 +101,7 @@ const RestaurantPage = () => {
           <div className="col-lg-8">
             <NavbarComponent />
             <Container className="py-4" style={{ marginBottom: '-450px' }}>
-              <h1 className="text-center mb-4"> Explore Restaurants Near You </h1>
+              <h1 className="text-center mb-4 text-white"> Explore Restaurants Near You </h1>
                 <RestaurantList restaurants={restaurants} onRestaurantSelect={handleRestaurantSelect} />
             </Container>
           </div>

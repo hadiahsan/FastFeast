@@ -25,22 +25,11 @@ const SignUpPage = () => {
 
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
-      <div className="w-100">
+      <div className="w-50">
       <Title></Title>
-      <h2 className="text-center mb-4">Create Your Account</h2>
+      <h2 className="text-center mb-4" style={{marginTop:"-20px"}}><strong>Create an Account</strong></h2>
 
         <Form onSubmit={handleSubmit} className="px-5">
-
-          <Form.Group className="mb-4">
-            <Form.Control
-              type="mobile"
-              placeholder="Mobile Number"
-              name="mobile"
-              value={formData.fullName}
-              onChange={handleChange}
-              required
-            />
-          </Form.Group>
 
           <Form.Group className="mb-4">
             <Form.Control
@@ -56,7 +45,7 @@ const SignUpPage = () => {
           <Form.Group className="mb-4">
             <Form.Control
               type="fullname"
-              placeholder="Email"
+              placeholder="Enter phone number or email"
               name="email"
               value={formData.email}
               onChange={handleChange}
@@ -78,14 +67,16 @@ const SignUpPage = () => {
           </Form.Group>
 
           <Link to="/UserInfo">
-          <Button variant="danger" type="submit" className="w-100"> Sign up </Button>
+          <Button variant="danger" type="submit" className="w-100"> <b>Sign up</b> </Button>
           </Link>
 
         </Form>
 
-        <p className="text-center mt-2 text-danger">
+        <p className="text-center mt-3 text-danger">
           <Link to="/" className="text-danger">Already have an account? Log in.</Link>
         </p>
+
+        <p className="text-center">By creating an account, you are agreeing to our <Link to="/" className="text-danger"><u>Terms of Use</u></Link> and our <Link to="/" className="text-danger"><u>Privacy Policy.</u></Link></p>
 
       </div>
     </div>

@@ -33,9 +33,9 @@ const UserInfo = () => {
 
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
-      <div className="w-100">
+      <div className="w-50">
       <Title></Title>
-      <h2 className="text-center mb-4">Personal Information</h2>
+      <h2 className="text-center mb-4" style={{marginTop:"-20px"}}>Personal Information</h2>
 
         <Form onSubmit={handleSubmit} className="px-5">
 
@@ -47,7 +47,7 @@ const UserInfo = () => {
               onChange={handleChange}
               required
             >
-              <option value="">Select a Country</option>
+              <option value="">Country</option>
               <option value="USA">United States</option>
               <option value="CA">Canada</option>
               <option value="UK">United Kingdom</option>
@@ -156,17 +156,6 @@ const UserInfo = () => {
 
           <Form.Group className="mb-4">
             <Form.Control
-              type="Street Address"
-              placeholder="Street Address"
-              name="Street Address"
-              value={formData.streetAddress}
-              onChange={handleChange}
-              required
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-4">
-            <Form.Control
               type="Province"
               placeholder="Province"
               name="Province"
@@ -189,6 +178,17 @@ const UserInfo = () => {
 
           <Form.Group className="mb-4">
             <Form.Control
+              type="Street Address"
+              placeholder="Street Address"
+              name="Street Address"
+              value={formData.streetAddress}
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Control
               type="Postal Code"
               placeholder="Postal Code"
               name="Postal Code"
@@ -199,7 +199,7 @@ const UserInfo = () => {
           </Form.Group>
 
           
-          <Link to="/RestaurantPage">
+          <Link to="/">
           <Button variant="danger" type="submit" className="w-100">
             Continue
           </Button>

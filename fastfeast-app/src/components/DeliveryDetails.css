@@ -1,0 +1,67 @@
+.delivery-details-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 250px;
+}
+
+/* Section Title Styles */
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Label Styles */
+.detail-label {
+  font-weight: bold;
+  color: #555;
+}
+
+/* Value Styles */
+.detail-value {
+  color: #333;
+}
+
+/* Order Summary List Styles */
+.order-summary {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* Promo Code Form Styles */
+.promo-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Apply Button Styles */
+.apply-button {
+  margin-left: 10px;
+}
+
+/* Location Map Styles */
+.location-map {
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Additional Styles */
+.form-control {
+  width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .delivery-details-container {
+    padding: 20px;
+  }
+  .section-title {
+    font-size: 20px;
+  }
+}

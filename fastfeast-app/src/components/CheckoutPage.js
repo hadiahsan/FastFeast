@@ -1,87 +1,114 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image, Form, Button } from 'react-bootstrap';
+import { useState } from 'react';
+import './DeliveryDetails.css'; // Import custom CSS for styling
+import { Link } from 'react-router-dom';
+import NavbarComponent from './Navbar';
 
-const CheckoutPage = () => {
+const DeliveryDetails = () => {
+  const [deliveryMethod, setDeliveryMethod] = useState('standard'); // State to manage selected delivery method
+
+  const handleDeliveryMethodChange = (e) => {
+    setDeliveryMethod(e.target.value); // Update selected delivery method
+  };
+
   const handlePlaceOrder = () => {
-    // Implement logic to place the order
-    alert('Order placed successfully!');
+    // Handle place order functionality
+    console.log('Placing order...');
   };
 
   return (
-    <Container className="py-4">
-      <h1 className="mb-4">Checkout</h1>
+    <div className="centered-container">
+      <Container className="delivery-details-container">
+        <h1 className="text-center"> Checkout</h1>
+          <h5 className="text-center"> Burger Haven</h5>
 
-      {/* Order Summary */}
-      <Row className="mb-4">
+        <Row>
         <Col>
-          <h2>Order Summary</h2>
-          {/* Display order summary from cart */}
-          {/* Example: Display list of items in cart and their prices */}
-        </Col>
-      </Row>
+            <h3 className="text-center">Order Summary</h3>
+            <ul className="order-summary">
+              
+            </ul>
+            {/* Display subtotal, taxes, fees, and total amount */}
+            <p className="detail-label d-flex justify-content-between">
+              <span><strong>Subtotal:</strong></span>
+              <span><strong>$30.96</strong></span>
+            </p>
 
-      {/* Delivery Details */}
-      <Row className="mb-4">
-        <Col>
-          <h2>Delivery Details</h2>
-          <Form>
-            {/* Input fields for delivery details (name, address, etc.) */}
-            {/* Example: Form fields for name, address, contact info */}
-            <Form.Group className="mb-3">
-              <Form.Label>Delivery Address</Form.Label>
-              <Form.Control type="text" placeholder="Enter delivery address" />
-            </Form.Group>
-            {/* Include a map image showing delivery location */}
-            <Image src="https://example.com/map-image.jpg" fluid />
-          </Form>
-        </Col>
-      </Row>
+            <p className="detail-label d-flex justify-content-between">
+              <span><strong>Taxes:</strong></span>
+              <span><strong>$4.03</strong></span>
+            </p>
 
-      {/* Delivery Options */}
-      <Row className="mb-4">
-        <Col>
-          <h2>Delivery Options</h2>
-          <Form>
-            {/* Select delivery type (standard, priority, schedule) */}
-            {/* Example: Dropdown or radio buttons for delivery options */}
-            {/* Input field for delivery date/time if scheduling */}
-          </Form>
+            <p className="detail-label d-flex justify-content-between">
+              <span><strong>Delivery Fee:</strong></span>
+              <span><strong>$2.00</strong></span>
+            </p>
+            <p className="detail-label d-flex justify-content-between">
+              <span><strong>Total Amount:</strong></span>
+              <span><strong>$36.99</strong></span>
+            </p>
+            <Button variant="primary" className="note-button">Add a note</Button>
         </Col>
-      </Row>
+        
+          <Col>
+            <h3 className="text-center">Payment Information</h3>
+            <Form>
+              <Row>
+                <Col>
+                  <Form.Group controlId="creditCardNumberLabel">
+                    <Form.Label>Credit Card Number</Form.Label>
+                    <Form.Control type="text" placeholder="XXXX-XXXX-XXXX-XXXX" />
+                  </Form.Group>
+                </Col>
+                <Col>
+                <Form.Group controlId="fullName">
+                    <Form.Label>Name on Card</Form.Label>
+                    <Form.Control type="text" placeholder="Full Name" />
+                  </Form.Group>
+                </Col>
+              </Row>
 
-      {/* Order Total */}
-      <Row className="mb-4">
-        <Col>
-          <h2>Order Total</h2>
-          {/* Display breakdown of order total (subtotal, tax, discounts, etc.) */}
-          {/* Example: List order items with prices and total amount */}
-          {/* Apply promo code section */}
-          <Form.Group className="mb-3">
-            <Form.Label>Promo Code</Form.Label>
-            <Form.Control type="text" placeholder="Enter promo code" />
-          </Form.Group>
-        </Col>
-      </Row>
+              <div className="mt-4">
+                <Row>
+                  <Col>
+                    <Form.Group controlId="expirationDate">
+                      <Form.Label>Expiration Date</Form.Label>
+                      <Form.Control type="text" placeholder="MM/YY" />
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group controlId="cvvInput">
+                      <Form.Label>CVV</Form.Label>
+                      <Form.Control type="text" placeholder="***" />
+                    </Form.Group>
+                  </Col>
 
-      {/* Payment Options */}
-      <Row className="mb-4">
-        <Col>
-          <h2>Payment Options</h2>
-          {/* Display payment methods (Visa, Mastercard, Apple Pay) */}
-          {/* Example: Buttons or icons for payment options */}
-        </Col>
-      </Row>
+                  <Row>
+                    <Col className="text-center" style={{ marginTop:"30px"}}>
+                      <h3>Apply Promo Code</h3>
+                      <Form className="promo-form d-flex justify-content-center">
+                        <Form.Group controlId="promoCode">
+                          <Form.Control type="text" placeholder="Enter promo code" />
+                        </Form.Group>
+                        <Button variant="primary" className="apply-button">Apply</Button>
+                      </Form>
+                    </Col>
+                  </Row>  
+                </Row>
+              </div>
 
-      {/* Place Order Button */}
-      <Row className="mb-4">
-        <Col>
-          <Button variant="primary" size="lg" onClick={handlePlaceOrder}>
-            Place Order
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+            </Form>
+          </Col>
+        </Row>
+
+        <div className="mt-5 text-center">
+        <Link to="/OrderStatus"> <Button variant="success" size="lg">Place Order</Button></Link>
+        </div>
+
+      </Container>
+    </div>
   );
 };
 
-export default CheckoutPage;
+export default DeliveryDetails;

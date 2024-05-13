@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import Title from './Title';
-import { Link, useNavigation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LogInPage = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
+    identifier: '',
     password: '',
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [formError, setFormError] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,27 +24,33 @@ const LogInPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Implement your sign-up logic here, e.g., send data to server
-    // Reset form after submission (optional)
-    setFormData({ firstName: '', lastName: '', email: '', password: '' });
+
+    if (formData.identifier.trim() === '' || formData.password.trim() === '') {
+      setFormError('Please provide a valid email or phone number and password.');
+    } else {
+      setFormError('');
+      console.log('Form submitted:', formData);
+
+      // Navigate to RestaurantPage upon successful login
+      navigate('/RestaurantPage');
+    }
   };
 
   return (
-
     <div className="container d-flex justify-content-center align-items-center vh-100">
-      <div className="w-100">
-      <Title></Title>
-      <h2 className="text-center mb-4">Log in to Your Account</h2>
+      <div className="w-50">
+        <Title />
+        <h2 className="text-center mb-4" style={{ marginTop: '-20px' }}>
+          <strong>Hi, Welcome Back! 👋</strong>
+        </h2>
 
         <Form onSubmit={handleSubmit} className="px-5">
-
           <Form.Group className="mb-4">
             <Form.Control
-              type="email"
-              placeholder="Email"
-              name="email"
-              value={formData.email}
+              type="text"
+              placeholder="Enter email or phone number"
+              name="identifier"
+              value={formData.identifier}
               onChange={handleChange}
               required
             />
@@ -52,7 +58,7 @@ const LogInPage = () => {
 
           <Form.Group className="mb-4">
             <Form.Control
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               name="password"
               value={formData.password}
@@ -60,14 +66,23 @@ const LogInPage = () => {
               required
             />
           </Form.Group>
-          
-          <Link to="/RestaurantPage">
-            <Button variant="danger" type="submit" className="w-100"> Log in </Button>
-          </Link>
 
+          {formError && <Alert variant="danger">{formError}</Alert>}
+
+          <Button
+            variant="danger"
+            type="submit"
+            className="w-100"
+            disabled={!formData.identifier || !formData.password}
+          >
+            Log in
+          </Button>
         </Form>
-        <p className="text-center mt-2 text-danger">
-          <Link to="/SignUpPage" className="text-danger">Don't have an account yet? Sign up.</Link>
+
+        <p className="text-center mt-3 text-danger">
+          <Link to="/SignUpPage" className="text-danger">
+            Don't have an account yet? Sign up.
+          </Link>
         </p>
       </div>
     </div>
